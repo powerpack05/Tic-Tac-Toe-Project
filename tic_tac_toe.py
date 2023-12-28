@@ -1,5 +1,5 @@
 import subprocess
-subprocess.run('cls',shell=True)
+#subprocess.run('cls',shell=True)
 class Board:
     def __init__(self):
         self.cells = [" ", " ", " ", " ", " ", " ", " ", " "," "]
@@ -56,21 +56,23 @@ def print_header():
     print("Welcome to Tic-Tac-Toe\n")
 
 def refresh_screen():
-    #Clear the Screen
+    # Clear the Screen
     subprocess.run('cls',shell=True)
-    #Print the Header
+    # Print the Header
     print_header()
-    #Show the board
+    # Show the board
     board.display()
 
 while True:
-    refresh_screen()
+    #refresh_screen()
 
     #Get the X input
     x_choice = int(input("\nX) please choose 1-9.> "))
     if x_choice in range(1,10):
-        #Update Board
+        # Update Board
         board.update_cell(x_choice,"X")
+        # Refresh the Screen
+        refresh_screen()
         # check for 'X' wins
         if board.is_winner("X"):
             print("\nX wins\n")
@@ -93,12 +95,14 @@ while True:
 
 
 
-    refresh_screen()
+    #refresh_screen()
     #Get the O input
     o_choice = int(input("\nO) please choose 1-9.> "))
     if o_choice in range(1,10):
-        #Update Board
+        # Update Board
         board.update_cell(o_choice,"O")
+        # Refresh the Screen
+        refresh_screen()
         # Check for 'O' Wins
         if board.is_winner("O"):
             print("\n O Wins\n")
